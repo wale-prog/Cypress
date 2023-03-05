@@ -1,10 +1,13 @@
 /// <reference types="Cypress" />
+import ProductPage from "../integration/pageObjects/ProductPage"
+
+const productPage = new ProductPage;
 
 Cypress.Commands.add('addToCart', (productName) => {
-  cy.get('.card-title').each((el, ind) => {
+  productPage.getProductTitle().each((el, ind) => {
     let elText = el.text()
     if (elText.includes(productName)) {
-      cy.get('.btn.btn-info').eq(ind).click() //better idea
-    }
+      productPage.getAddButton().eq(ind).click()
+    }    
   })
 })
