@@ -4,12 +4,13 @@ module.exports = defineConfig({
   e2e: {
     defaultCommandTimeout: 8000,
     watchForFileChanges: false,
+    pageLoadTimeout: 30000,
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
     specPattern: 'cypress/integration/examples/*.js',
     env: {
-      baseurl: "https://www.rahulshettyacademy.com/angularpractice/",
+      baseurl: "https://rahulshettyacademy.com",
     }
   },
 });

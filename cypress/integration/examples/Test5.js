@@ -4,9 +4,10 @@ import 'cypress-iframe'
 
 describe('Tests', () => {
   beforeEach(() => {
-    cy.visit('https://www.rahulshettyacademy.com/AutomationPractice/')
+    cy.visit(Cypress.env('baseurl')+'/AutomationPractice/')
   })
   it.skip('Grabs href attr then opens url on the same tab', () => {
+    cy.visit(Cypress.env('baseurl')+'/AutomationPractice/')
     cy.get('#opentab').then((el) => {
       const url = el.prop('href')
       cy.visit(url)

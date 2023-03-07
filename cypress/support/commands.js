@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-import ProductPage from "../integration/pageObjects/ProductPage"
+import ProductPage from "../support/pageObjects/ProductPage"
 
 const productPage = new ProductPage;
 

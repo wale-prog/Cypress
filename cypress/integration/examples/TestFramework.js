@@ -1,12 +1,12 @@
 /// <reference types="Cypress" />
-import HomePage from "../pageObjects/HomePage"
-import ProductPage from "../pageObjects/ProductPage"
+import HomePage from "../../support/pageObjects/HomePage"
+import ProductPage from "../../support/pageObjects/ProductPage"
 
 describe('Framework with Cypress', function () {
   const homePage = new HomePage
   const productPage = new ProductPage
   beforeEach(() => {
-    cy.visit(Cypress.env('baseurl'))
+    cy.visit(Cypress.env('baseurl')+'/angularpractice/')
     cy.fixture('example').then(function (data) {  // It will not work if arrow function is used instead
       this.data = data
     })

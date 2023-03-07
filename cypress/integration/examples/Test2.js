@@ -2,7 +2,7 @@
 
 describe('Test for a specific product on the page', () => {
   it('Product purchase validation test', () => {
-    cy.visit('https://rahulshettyacademy.com/seleniumPractise/#/')
+    cy.visit(Cypress.env('baseurl')+'/seleniumPractise/')
     cy.get('.search-keyword').type('ca').then(() => {
       cy.get('.products').as('productLocator')
       cy.get('@productLocator').find('.product').each((product) => {
