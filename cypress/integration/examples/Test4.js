@@ -1,8 +1,10 @@
 /// <reference types="cypress" />
 
 describe('Tests alert popup windows', () => {
-  it.skip('Tests an alert window', () => {
-    cy.visit('https://www.rahulshettyacademy.com/AutomationPractice/')
+  beforeEach(() => {
+    cy.visit(Cypress.env('baseurl')+'/AutomationPractice/')
+  })
+  it('Tests an alert window', () => {
     cy.get('#alertbtn').click()
     cy.get('[value=Confirm]').click()
     cy.on('window:alert', (alertContent) => {
@@ -12,15 +14,13 @@ describe('Tests alert popup windows', () => {
       expect(confirmContent).to.equal('Hello , Are you sure you want to confirm?')
     })
   })
-  it.skip('Tests redirects to a blank page', () => {
-    cy.visit('https://qaclickacademy.com/practice.php')
+  it('Tests redirects to a blank page', () => {
     cy.get('#opentab').invoke('removeAttr', 'target').click({force: true})
     cy.url().should('eq', 'https://www.rahulshettyacademy.com/')
     cy.go(-1) // or cy.go('back')
     cy.url().should('eq', 'https://rahulshettyacademy.com/AutomationPractice/')
   })
-  it.skip('Tests tables', () => {
-    cy.visit('https://www.rahulshettyacademy.com/AutomationPractice/')
+  it('Tests tables', () => {
     cy.get('tr td:nth-child(2)').each(($el, index) => {
       let text = $el.text()
       if (text.includes("Python")) {
@@ -32,8 +32,7 @@ describe('Tests alert popup windows', () => {
     })
   })
 
-  it.skip('Test tables 2', () => {
-    cy.visit('https://www.rahulshettyacademy.com/AutomationPractice/')
+  it('Test tables 2', () => {
     cy.get('[name=courses] tr').each((product) => {
       let text = product.text()
       if (text.includes("Python")) {
@@ -43,7 +42,6 @@ describe('Tests alert popup windows', () => {
   })
 
   it('Tests a Mouse over event', () => {
-    cy.visit('https://www.rahulshettyacademy.com/AutomationPractice/')
     cy.get('.mouse-hover-content').invoke('show')
     cy.contains('Top').click()
     cy.url().should('include', 'top')

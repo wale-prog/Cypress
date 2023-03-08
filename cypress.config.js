@@ -1,6 +1,7 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  projectId: 'gav2sg',
   e2e: {
     defaultCommandTimeout: 8000,
     watchForFileChanges: false,

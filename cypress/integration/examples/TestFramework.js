@@ -13,7 +13,7 @@ describe('Framework with Cypress', function () {
     //OR
     // cy.fixture('example').as('data')
   })
-  it.skip('First test case; input', function () {
+  it('First test case; input', function () {
     homePage.getEditBox().type(this.data.name)
     homePage.getGender().select(this.data.gender)
     homePage.getTwoWayDataBinding().should('have.value', this.data.name)

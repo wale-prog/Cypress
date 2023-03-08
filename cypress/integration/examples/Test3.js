@@ -2,7 +2,7 @@
 
 describe('Tests on checkboxes', () => {
   beforeEach(() => {
-    cy.visit('https://www.rahulshettyacademy.com/AutomationPractice/')
+    cy.visit(Cypress.env('baseurl')+'/AutomationPractice/')
   })
   it('Tests checkboxes', () => {
     cy.get('#checkBoxOption1').check().should('be.checked')
